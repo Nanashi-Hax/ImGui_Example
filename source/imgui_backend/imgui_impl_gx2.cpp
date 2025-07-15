@@ -41,7 +41,7 @@ static ImGui_ImplGX2_Data* ImGui_ImplGX2_GetBackendData()
 }
 
 // Functions
-bool    ImGui_ImplGX2_Init()
+bool ImGui_ImplGX2_Init()
 {
     ImGuiIO& io = ImGui::GetIO();
     IM_ASSERT(io.BackendRendererUserData == NULL && "Already initialized a renderer backend!");
@@ -55,7 +55,7 @@ bool    ImGui_ImplGX2_Init()
     return true;
 }
 
-void    ImGui_ImplGX2_Shutdown()
+void ImGui_ImplGX2_Shutdown()
 {
     ImGui_ImplGX2_Data* bd = ImGui_ImplGX2_GetBackendData();
     IM_ASSERT(bd != NULL && "No renderer backend to shutdown, or already shutdown?");
@@ -67,7 +67,7 @@ void    ImGui_ImplGX2_Shutdown()
     IM_DELETE(bd);
 }
 
-void    ImGui_ImplGX2_NewFrame()
+void ImGui_ImplGX2_NewFrame()
 {
     ImGui_ImplGX2_Data* bd = ImGui_ImplGX2_GetBackendData();
     IM_ASSERT(bd != NULL && "Did you call ImGui_ImplGX2_Init()?");
@@ -116,13 +116,12 @@ static void ImGui_ImplGX2_SetupRenderState(ImDrawData* draw_data, int fb_width, 
     GX2SetVertexUniformReg(0, sizeof(ortho_projection) / sizeof(float), &ortho_projection[0][0]);
 }
 
-void    ImGui_ImplGX2_RenderDrawData(ImDrawData* draw_data)
+void ImGui_ImplGX2_RenderDrawData(ImDrawData* draw_data)
 {
     // Avoid rendering when minimized, scale coordinates for retina displays (screen coordinates != framebuffer coordinates)
     int fb_width = (int)(draw_data->DisplaySize.x * draw_data->FramebufferScale.x);
     int fb_height = (int)(draw_data->DisplaySize.y * draw_data->FramebufferScale.y);
-    if (fb_width <= 0 || fb_height <= 0)
-        return;
+    if (fb_width <= 0 || fb_height <= 0) return;
 
     ImGui_ImplGX2_Data* bd = ImGui_ImplGX2_GetBackendData();
 
@@ -295,7 +294,7 @@ void ImGui_ImplGX2_DestroyFontsTexture()
     }
 }
 
-bool    ImGui_ImplGX2_CreateDeviceObjects()
+bool ImGui_ImplGX2_CreateDeviceObjects()
 {
     ImGui_ImplGX2_Data* bd = ImGui_ImplGX2_GetBackendData();
     bd->ShaderGroup = IM_NEW(WHBGfxShaderGroup)();
@@ -321,7 +320,7 @@ bool    ImGui_ImplGX2_CreateDeviceObjects()
     return true;
 }
 
-void    ImGui_ImplGX2_DestroyDeviceObjects()
+void ImGui_ImplGX2_DestroyDeviceObjects()
 {
     ImGui_ImplGX2_Data* bd = ImGui_ImplGX2_GetBackendData();
 

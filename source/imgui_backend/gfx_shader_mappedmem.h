@@ -1,20 +1,18 @@
 #pragma once
+
+// wut
 #include <whb/gfx.h>
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
-BOOL
-WHBGfxLoadGFDShaderGroupMappedMem(WHBGfxShaderGroup *group,
-                                  uint32_t index,
-                                  const void *file);
+BOOL WHBGfxLoadGFDShaderGroupMappedMem(WHBGfxShaderGroup *group, uint32_t index, const void *file);
 
-BOOL
-WHBGfxInitFetchShaderMappedMem(WHBGfxShaderGroup *group);
+BOOL WHBGfxInitFetchShaderMappedMem(WHBGfxShaderGroup *group);
 
-BOOL
-WHBGfxFreeShaderGroupMappedMem(WHBGfxShaderGroup *group);
+BOOL WHBGfxFreeShaderGroupMappedMem(WHBGfxShaderGroup *group);
 
 #ifdef __cplusplus
 }

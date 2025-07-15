@@ -21,9 +21,16 @@ WUT_ROOT := $(DEVKITPRO)/wut
 #-------------------------------------------------------------------------------
 TARGET		:=	imgui_overlay_plugin
 BUILD		:=	build
-SOURCES		:=	source source/imgui_backend imgui
+
+ROOT_SOURCE := $(TOPDIR)/source $(TOPDIR)/imgui
+SOURCES := $(shell find $(ROOT_SOURCE) -type d)
+SOURCES := $(foreach source,$(SOURCES),$(source:$(TOPDIR)/%=%)/)
+
 DATA		:=	data
-INCLUDES	:=	source imgui
+
+ROOT_INCLUDE := $(TOPDIR)/include $(TOPDIR)/imgui
+INCLUDES := $(shell find $(ROOT_SOURCE) -type d)
+INCLUDES := $(foreach source,$(SOURCES),$(source:$(TOPDIR)/%=%)/)
 
 #-------------------------------------------------------------------------------
 # options for code generation

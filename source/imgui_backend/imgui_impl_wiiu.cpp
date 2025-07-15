@@ -18,7 +18,7 @@ static ImGui_ImplWiiU_Data* ImGui_ImplWiiU_GetBackendData()
     return ImGui::GetCurrentContext() ? (ImGui_ImplWiiU_Data*)ImGui::GetIO().BackendPlatformUserData : NULL;
 }
 
-bool     ImGui_ImplWiiU_Init()
+bool ImGui_ImplWiiU_Init()
 {
     ImGuiIO& io = ImGui::GetIO();
     IM_ASSERT(io.BackendPlatformUserData == NULL && "Already initialized a platform backend!");
@@ -32,7 +32,7 @@ bool     ImGui_ImplWiiU_Init()
     return true;
 }
 
-void     ImGui_ImplWiiU_Shutdown()
+void ImGui_ImplWiiU_Shutdown()
 {
     ImGui_ImplWiiU_Data* bd = ImGui_ImplWiiU_GetBackendData();
     IM_ASSERT(bd != NULL && "No platform backend to shutdown, or already shutdown?");
@@ -43,7 +43,7 @@ void     ImGui_ImplWiiU_Shutdown()
     IM_DELETE(bd);
 }
 
-bool     ImGui_ImplWiiU_ProcessVPADInput(VPADStatus* input)
+bool ImGui_ImplWiiU_ProcessVPADInput(VPADStatus* input)
 {
     ImGui_ImplWiiU_Data* bd = ImGui_ImplWiiU_GetBackendData();
     IM_ASSERT(bd != NULL && "Did you call ImGui_ImplWiiU_Init()?");
@@ -68,7 +68,7 @@ bool     ImGui_ImplWiiU_ProcessVPADInput(VPADStatus* input)
     return io.WantCaptureMouse;
 }
 
-bool     ImGui_ImplWiiU_ProcessWPADInput(WPADStatusProController* input)
+bool ImGui_ImplWiiU_ProcessWPADInput(WPADStatusProController* input)
 {
     return true; // TODO
 }
