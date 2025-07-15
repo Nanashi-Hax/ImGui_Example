@@ -43,7 +43,14 @@ void DrawIntoColorBuffer(const GX2ColorBuffer* colorBuffer, GX2ScanTarget scan_t
     GX2SetAlphaTest(GX2_TRUE, GX2_COMPARE_FUNC_GREATER, 0.0f);
     GX2SetColorControl(GX2_LOGIC_OP_COPY, GX2_ENABLE, GX2_DISABLE, GX2_ENABLE);
 
-    Overlay_Draw(colorBuffer->surface.width, colorBuffer->surface.height);
+    if(scan_target == GX2_SCAN_TARGET_TV)
+    {
+        GetTV()->Draw();
+    }
+    else if(scan_target == GX2_SCAN_TARGET_DRC)
+    {
+        GetDRC()->Draw();
+    }
 
     GX2Flush();
 

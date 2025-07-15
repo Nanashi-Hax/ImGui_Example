@@ -1,13 +1,13 @@
 // dear imgui: Renderer Backend for the Nintendo Wii U using GX2
 //             Adjusted for usage with WUPS/WUMS.
 #include "imgui.h"
-#include "imgui_impl_gx2.h"
+#include "imgui_backend/imgui_impl_gx2.h"
 #include <stdio.h>
 #include <stdint.h>     // intptr_t
 
 // GX2 includes
 #include <whb/gfx.h>
-#include "gfx_shader_mappedmem.h"
+#include "imgui_backend/gfx_shader_mappedmem.h"
 #include <gx2/registers.h>
 #include <gx2/draw.h>
 #include <gx2/utils.h>
@@ -17,7 +17,7 @@
 #include <memory/mappedmemory.h>
 
 // Include shader data
-#include "shader.h"
+#include "imgui_backend/shader.h"
 
 // GX2 Data
 struct ImGui_ImplGX2_Data

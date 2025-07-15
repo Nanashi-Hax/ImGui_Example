@@ -28,9 +28,7 @@ SOURCES := $(foreach source,$(SOURCES),$(source:$(TOPDIR)/%=%)/)
 
 DATA		:=	data
 
-ROOT_INCLUDE := $(TOPDIR)/include $(TOPDIR)/imgui
-INCLUDES := $(shell find $(ROOT_SOURCE) -type d)
-INCLUDES := $(foreach source,$(SOURCES),$(source:$(TOPDIR)/%=%)/)
+INCLUDES := include imgui
 
 #-------------------------------------------------------------------------------
 # options for code generation

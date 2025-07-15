@@ -2,7 +2,7 @@
 //             Adjusted for usage with WUPS/WUMS.
 #include "imgui.h"
 #include "imgui_internal.h"
-#include "imgui_impl_wiiu.h"
+#include "imgui_backend/imgui_impl_wiiu.h"
 
 // Wii U Data
 struct ImGui_ImplWiiU_Data

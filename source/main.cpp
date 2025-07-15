@@ -15,7 +15,12 @@ WUPS_PLUGIN_LICENSE("MIT");
 
 GX2ContextState* gContextState = nullptr;
 bool gOverlayInitDone = false;
-bool gDrawReady = false;
+
+namespace
+{
+    TV* tv;
+    DRC* drc;
+}
 
 INITIALIZE_PLUGIN()
 {
@@ -27,14 +32,36 @@ INITIALIZE_PLUGIN()
     if (gContextState == nullptr) {
         OSFatal("Failed to allocate gContextState");
     }
-
-    Overlay_Initialize();
 }
 
-ON_APPLICATION_START() {
-    gDrawReady = false;
+ON_APPLICATION_START()
+{
+    SetTV(new TV(ImVec2(1280.0f, 720.0f)));
+    SetDRC(new DRC(ImVec2(854.0f, 480.0f)));
 }
 
-ON_APPLICATION_ENDS() {
+ON_APPLICATION_REQUESTS_EXIT()
+{
+    delete GetTV();
+    delete GetDRC();
+}
 
+TV* GetTV()
+{
+    return tv;
+}
+
+DRC* GetDRC()
+{
+    return drc;
+}
+
+void SetTV(TV* t)
+{
+    tv = t;
+}
+
+void SetDRC(DRC* d)
+{
+    drc = d;
 }
