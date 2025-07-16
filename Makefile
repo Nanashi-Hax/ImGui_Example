@@ -19,7 +19,7 @@ WUT_ROOT := $(DEVKITPRO)/wut
 # DATA is a list of directories containing data files
 # INCLUDES is a list of directories containing header files
 #-------------------------------------------------------------------------------
-TARGET		:=	imgui_overlay_plugin
+TARGET		:=	ImGui_Example
 BUILD		:=	build
 
 ROOT_SOURCE := $(TOPDIR)/source $(TOPDIR)/imgui $(TOPDIR)/wiiu
@@ -36,7 +36,7 @@ INCLUDES := include imgui wiiu
 CFLAGS	:=	-Wall -O2 -ffunction-sections \
 			$(MACHDEP)
 
-CFLAGS	+=	$(INCLUDE) -D__WIIU__ -D__WUT__ -D__WUPS__ 
+CFLAGS	+=	$(INCLUDE) -D__WIIU__ -D__WUT__ -D__WUPS__
 
 CXXFLAGS	:= $(CFLAGS)
 
