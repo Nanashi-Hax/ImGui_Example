@@ -2,8 +2,8 @@
 #include "main.h"
 
 #include "imgui.h"
-#include "imgui_backend/imgui_impl_gx2.h"
-#include "imgui_backend/imgui_impl_wiiu.h"
+#include "imgui_impl_gx2.h"
+#include "imgui_impl_wiiu.h"
 
 #include <gx2/state.h>
 
@@ -35,6 +35,8 @@ void TV::Draw()
 
     ImGui_ImplGX2_NewFrame();
     ImGui::NewFrame();
+
+    ImGui::ShowDemoWindow();
 
     ImGui::Render();
     ImGui_ImplGX2_RenderDrawData(ImGui::GetDrawData());

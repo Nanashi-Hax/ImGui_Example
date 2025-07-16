@@ -14,7 +14,7 @@
 
 #include <cstring> // for memcpy
 
-#include "imgui_backend/imgui_impl_wiiu.h"
+#include "imgui_impl_wiiu.h"
 
 namespace
 {

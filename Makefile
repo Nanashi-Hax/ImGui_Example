@@ -22,13 +22,13 @@ WUT_ROOT := $(DEVKITPRO)/wut
 TARGET		:=	imgui_overlay_plugin
 BUILD		:=	build
 
-ROOT_SOURCE := $(TOPDIR)/source $(TOPDIR)/imgui
+ROOT_SOURCE := $(TOPDIR)/source $(TOPDIR)/imgui $(TOPDIR)/wiiu
 SOURCES := $(shell find $(ROOT_SOURCE) -type d)
 SOURCES := $(foreach source,$(SOURCES),$(source:$(TOPDIR)/%=%)/)
 
 DATA		:=	data
 
-INCLUDES := include imgui
+INCLUDES := include imgui wiiu
 
 #-------------------------------------------------------------------------------
 # options for code generation
