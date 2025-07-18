@@ -285,12 +285,12 @@ void ImGui_ImplGX2_DestroyFontsTexture()
     ImGui_ImplGX2_Data* bd = ImGui_ImplGX2_GetBackendData();
     if (bd->FontTexture)
     {
-        MEMFreeToMappedMemory(&bd->FontTexture->Texture->surface.image);
+        MEMFreeToMappedMemory(bd->FontTexture->Texture->surface.image);
         io.Fonts->SetTexID(0);
-        IM_DELETE(bd->FontTexture->Texture);
-        IM_DELETE(bd->FontTexture->Sampler);
+
         IM_DELETE(bd->FontTexture);
-        bd->FontTexture = NULL;
+
+        bd->FontTexture = nullptr;
     }
 }
 
