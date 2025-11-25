@@ -1,8 +1,8 @@
 --target=powerpc-eabi
 
+-xc++
 -Wall
 -Wno-deprecated-builtins
-
 -std=c++23
 
 -IPlugin/Include
